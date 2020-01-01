@@ -29,7 +29,7 @@ class AccDatabase (context: Context): SQLiteOpenHelper(context, dbname, factory,
 
     fun userPresent(username: String,pass: String): Boolean {
         val db=  writableDatabase
-        val query= "select * from user where username = $username and pass = $pass"
+        val query= "select * from user where username = '$username' and pass = '$pass'"
         val cursor= db.rawQuery(query,null)
         if ( cursor.count <= 0){
             cursor.close()
@@ -38,7 +38,9 @@ class AccDatabase (context: Context): SQLiteOpenHelper(context, dbname, factory,
         cursor.close()
         return true
     }
+
     companion object{
+        -
         internal val dbname = "userDB"
         internal val factory = null
         internal val version = 1
