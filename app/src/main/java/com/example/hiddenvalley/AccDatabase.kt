@@ -40,7 +40,6 @@ class AccDatabase (context: Context): SQLiteOpenHelper(context, dbname, factory,
     }
 
     companion object{
-        -
         internal val dbname = "userDB"
         internal val factory = null
         internal val version = 1
