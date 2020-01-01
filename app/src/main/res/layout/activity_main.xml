@@ -5,56 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/main123">
+    >
 
-    <ImageView
-        android:layout_margin="50dp"
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="53dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <LinearLayout
-        android:paddingTop="60dp"
-        android:paddingLeft="210dp"
-        android:orientation="vertical"
+<LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/main123"
+        android:paddingTop="60dp">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
+        <ImageView
+            app:layout_constraintEnd_toStartOf="@+id/login_button"
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="232dp" />
+            tools:srcCompat="@tools:sample/avatars"
+            />
 
         <Button
-            android:id="@+id/login"
-            android:layout_width="160dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintBottom_toTopOf="@+id/registration_button"
+            android:id="@+id/login_button"
+            android:layout_width="130dp"
             android:layout_height="43dp"
             android:text="Login"
-            tools:layout_editor_absoluteX="221dp"
-            tools:layout_editor_absoluteY="61dp" />
+            />
 
         <Button
-            android:layout_marginTop="20dp"
-            android:id="@+id/registration"
-            android:layout_width="162dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/login_button"
+            android:id="@+id/registration_button"
+            android:layout_width="130dp"
             android:layout_height="45dp"
             android:text="Registration"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="124dp" />
+             />
     </LinearLayout>
+    <include
+        android:id="@+id/registration_layout"
+        android:visibility="gone"
+        layout="@layout/user_registration"/>
+    <include
+        android:id="@+id/login_layout"
+        android:visibility="gone"
+        layout="@layout/login" />
 
-        <include
-            android:id="@+id/registration_layout"
-            android:visibility="gone"
-            layout="@layout/user_registration" />
-
-        <include
-            android:id="@+id/login_layout"
-            android:visibility="gone"
-            layout="@layout/login" />
 </RelativeLayout>

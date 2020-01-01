@@ -1,13 +1,16 @@
 package com.example.hiddenvalley
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.signup.*
-import java.sql.DatabaseMetaData
+import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.user_registration.*
+import kotlinx.android.synthetic.main.user_registration.pass
+import kotlinx.android.synthetic.main.user_registration.username
 
-class MainActivity : AppCompatActivity() {
+class  MainActivity : AppCompatActivity() {
 
     lateinit var handler: AccDatabase
 
@@ -17,14 +20,40 @@ class MainActivity : AppCompatActivity() {
 
         handler = AccDatabase(this)
 
+        showHome()
 
-        /*sign.setOnClickListener{
-            showSignUp()
-        }*/
+        registration_button.setOnClickListener{
+            showUserReg()
+        }
 
-        /*save.setOnClickListener{}{
-            handler.insertUserData(username.text.toString(),pass.text.toString())
-        }*/
+        login_button.setOnClickListener{
+            showLogin()
+        }
+
+        back_button.setOnClickListener{
+            showHome()
+        }
+
+        sign_button.setOnClickListener{
+            if(pass.text.toString()==password.text.toString()) {
+                handler.insertUserData(username.text.toString(), pass.text.toString())
+                showHome()
+            }else {
+                Toast.makeText(this, "Incorrect Second Password", Toast.LENGTH_SHORT).show()
+                showUserReg()
+            }
+        }
+
+        login.setOnClickListener{
+            if(handler.userPresent(login_username.text.toString(),login_pass.text.toString())) {
+                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                showHome()
+            }
+            else {
+                Toast.makeText(this, "Username Or Password Incorrect", Toast.LENGTH_SHORT).show()
+                showHome()
+            }
+        }
     }
 
     private fun showUserReg(){

@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     android:paddingTop="345dp"
     android:paddingLeft="50dp"
-    android:background="@drawable/loginbackground">
+    android:background="@drawable/loginbackground"
+    android:id="@+id/login123">
 
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/login_username"
         android:layout_width="311dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -17,7 +18,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/pass"
+        android:id="@+id/login_pass"
         android:layout_width="311dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

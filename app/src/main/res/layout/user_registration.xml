@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="345dp"
-    android:paddingLeft="50dp"
-    android:background="@drawable/loginbackground">
+
+    android:background="@drawable/loginbackground"
+    android:id="@+id/registration123">
 
 
     <EditText
@@ -35,7 +35,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/sign"
+        android:id="@+id/sign_button"
         android:layout_width="234dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
@@ -44,13 +44,12 @@
         android:text="SIGN UP" />
 
     <Button
-        android:id="@+id/back"
+        android:id="@+id/back_button"
         android:layout_width="174dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="65dp"
         android:ems="5"
         android:text="BACK" />
-
 
 
 </LinearLayout>
